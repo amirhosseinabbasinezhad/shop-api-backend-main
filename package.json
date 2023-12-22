@@ -27,6 +27,7 @@
     "nodemon": "^2.0.16",
     "razorpay": "^2.8.3",
     "serverless-http": "^3.2.0",
-    "stripe": "^8.222.0"
+    "stripe": "^8.222.0",
+    "uuid": "^9.0.1"
   }
 }
