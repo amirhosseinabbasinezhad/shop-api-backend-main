@@ -42,7 +42,7 @@ app.use("/api/products", require("./routes/product"));
 app.use("/api/cart", require("./routes/cart"));
 app.use("/api/orders", require("./routes/order"));
 app.use("/api/checkout", require("./routes/stripe"));
-app.use("/api/announcment", require("./routes/announcment"));
+//app.use("/api/announcment", require("./routes/announcment"));
 //app.use("/api/buy", require("./routes/paymentRout"));
 app.use("/api/review", require('./routes/Reviews'))
 app.use("/api/user/address", require("./routes/address"))

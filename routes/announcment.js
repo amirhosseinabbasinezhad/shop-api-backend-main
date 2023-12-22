@@ -1,7 +1,7 @@
-const router = require("express").Router();
+/*const router = require("express").Router();
 const { default: mongoose } = require("mongoose");
-const { findByIdAndUpdate } = require("../models/announcment");
-const Announcments = require("../models/announcment");
+//const { findByIdAndUpdate } = require("../models/announcment");
+//const Announcments = require("../models/");
 const { verifyAdminWithToken } = require("./tokenVerify");
 
 
@@ -91,4 +91,4 @@ router.delete("/:id", async (req, res) => {
     }
 })
 
-module.exports = router;
+module.exports = router;*/
