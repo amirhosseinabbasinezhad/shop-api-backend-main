@@ -1,5 +1,5 @@
 const route = require("express").Router()
-const Address = require("./../models/addressOfUser")
+const Address = require("../models/UserAddress")
 const { verifyToken } = require("./tokenVerify")
 //get user address
 route.get("/", verifyToken ,async (req, res) => {
