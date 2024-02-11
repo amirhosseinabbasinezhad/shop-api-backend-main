@@ -25,7 +25,7 @@ router.post("/", verifyToken, async (req, res) => {
 //UPDATE
 router.put("/:id", verifyAdminWithToken, async (req, res) => {
   try {
-    const updatedOrder = await Order.findByIdAndUpdate(
+    const updatedOrder = await OrderSchema.findByIdAndUpdate(
       req.params.id,
       {
         $set: req.body,
