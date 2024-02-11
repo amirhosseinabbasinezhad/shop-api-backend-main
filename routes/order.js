@@ -1,7 +1,7 @@
 const Order = require("../models/order");
 const { verifyAdminWithToken, verifyToken, verifyUserWithToken} = require("./tokenVerify");
 const ConfirmOrders = require('../models/ConfirmOrders.js');
-const Order = require('../models/order.jd');
+const Order = require('../models/order.js');
 
 const { default: mongoose, mongo } = require("mongoose");
 const product = require("../models/product");
@@ -64,7 +64,7 @@ router.get("/find/:id", verifyUserWithToken, async (req, res) => {
 });
 
 //get user order not paid
-router.get("/user/:userId", verifyToken, async (req, res) => {
+router.get("/user/:userId", verifyUserWithToken, async (req, res) => {
   const userId = req.params.userId;
 
   try {
