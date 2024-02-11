@@ -60,10 +60,27 @@ router.get("/find/:id", verifyUserWithToken, async (req, res) => {
     res.status(500).json(err);
   }
 });
- 
+
+//get user order 
+router.get("/user/:userId/orders", verifyToken, async (req, res) => {
+  const userId = req.params.userId;
+
+  try {
+    const orders = await ConfirmOrders.find({ userID: userId }).sort({ createdAt: -1 });
+    res.status(200).json(orders);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+
+
 // //GET ALL
 
-router.get("/", verifyUserWithToken, async (req, res) => {
+
+
+router.get("/", verifyAdminWithToken, async (req, res) => {
   const {page = 1, limit = 10} = req.query;
   const startIndex = (page - 1) * limit;
   const FeildsIWant = {createdAt: 1, userInfo: 1, price: 1, orderStatus: 1}
