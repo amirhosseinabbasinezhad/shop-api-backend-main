@@ -63,7 +63,7 @@ router.get("/find/:id", verifyUserWithToken, async (req, res) => {
  
 // //GET ALL
 
-router.get("/", verifyAdminWithToken, async (req, res) => {
+router.get("/", verifyUserWithToken, async (req, res) => {
   const {page = 1, limit = 10} = req.query;
   const startIndex = (page - 1) * limit;
   const FeildsIWant = {createdAt: 1, userInfo: 1, price: 1, orderStatus: 1}
