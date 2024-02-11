@@ -1,6 +1,8 @@
 const Order = require("../models/order");
 const { verifyAdminWithToken, verifyToken, verifyUserWithToken} = require("./tokenVerify");
 const ConfirmOrders = require('../models/ConfirmOrders.js');
+const Order = require('../models/order.jd');
+
 const { default: mongoose, mongo } = require("mongoose");
 const product = require("../models/product");
 const {createOrderTemplate} = require("../helpers/orderConfrimation");
@@ -51,7 +53,7 @@ router.put("/:id", verifyAdminWithToken, async (req, res) => {
 
 //////////////            CONFIRMED ORDERS         //////////////////////////////////
 
-//GET USER ORDERS
+//GET USER ORDERS paid
 router.get("/find/:id", verifyUserWithToken, async (req, res) => {
   try {
     const orders = await ConfirmOrders.find({ userID: req.user.id }).sort({createdAt: -1});
@@ -61,12 +63,12 @@ router.get("/find/:id", verifyUserWithToken, async (req, res) => {
   }
 });
 
-//get user order 
+//get user order not paid
 router.get("/user/:userId", verifyToken, async (req, res) => {
   const userId = req.params.userId;
 
   try {
-    const orders = await ConfirmOrders.find({ userID: userId }).sort({ createdAt: -1 });
+    const orders = await Order.find({ userID: userId }).sort({ createdAt: -1 });
     res.status(200).json(orders);
   } catch (err) {
     res.status(500).json(err);
