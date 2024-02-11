@@ -25,7 +25,7 @@ router.post("/", verifyToken, async (req, res) => {
 //UPDATE
 router.put("/:id", verifyAdminWithToken, async (req, res) => {
   try {
-    const updatedOrder = await OrderSchema.findByIdAndUpdate(
+    const updatedOrder = await Order.findByIdAndUpdate(
       req.params.id,
       {
         $set: req.body,
@@ -68,7 +68,7 @@ router.get("/user/:userId", verifyUserWithToken, async (req, res) => {
   const userId = req.params.userId;
 
   try {
-    const orders = await Order.find({ userID: userId }).sort({ createdAt: -1 });
+    const orders = await OrderSchema.find({ userID: userId }).sort({ createdAt: -1 });
     res.status(200).json(orders);
   } catch (err) {
     res.status(500).json(err);
