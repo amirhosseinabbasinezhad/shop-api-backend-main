@@ -62,7 +62,7 @@ router.get("/find/:id", verifyUserWithToken, async (req, res) => {
 });
 
 //get user order 
-router.get("/user/:userId/orders", verifyToken, async (req, res) => {
+router.get("/user/:userId", verifyToken, async (req, res) => {
   const userId = req.params.userId;
 
   try {
