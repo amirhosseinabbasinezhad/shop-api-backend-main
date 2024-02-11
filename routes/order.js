@@ -1,7 +1,7 @@
 const Order = require("../models/order");
 const { verifyAdminWithToken, verifyToken, verifyUserWithToken} = require("./tokenVerify");
 const ConfirmOrders = require('../models/ConfirmOrders.js');
-const Order = require('../models/order.js');
+const OrderSchema = require('../models/order.js');
 
 const { default: mongoose, mongo } = require("mongoose");
 const product = require("../models/product");
