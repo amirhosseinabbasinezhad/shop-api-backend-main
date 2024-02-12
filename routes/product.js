@@ -153,6 +153,8 @@ router.get("/allinfo",async (req, res) => {
         ]},
         {
           title: 1,
+          img:1,
+          price:1,
           _id: 1
         }
       ).limit(5)
